@@ -6,51 +6,26 @@ namespace Q6
     {
         static void Main(string[] args)
         {
-            var department = GetCurrentDepartment();
-           
-           
-        }
 
-        static Department GetCurrentDepartment()
+
+        }
+    }
+        class Bus
         {
-            Department department1 = new Department();
-            department1.Company = new Company();
-            department1.City = new City();
-            Console.WriteLine("Введите тип компании:");
-            department1.Company.Type = Console.ReadLine();
-            Console.WriteLine("Введите название компании:");
-            department1.Company.Name = Console.ReadLine();
-            if (department1.Company.Name == "")
+            public int? Load;
+        
+            public void PrintStatus()
             {
-                department1.Company.Name = null;
-            }
-            Console.WriteLine("Введите город компании:");
-            department1.City.Name = Console.ReadLine();
-            
-            if ((department1.City.Name=="Питер")&&(department1.Company.Type =="Банк"))
+          
+            if (Load.HasValue)
             {
-                string name = department1.Company.Name ?? "Неизвестная компания";
-                Console.WriteLine("У банка {0} есть отделение в Санкт-Петербурге", name);
-
+                Console.WriteLine("В автобусе {0} пассажиров", Load.Value);
             }
-            return department1;
+            else
+            {
+                Console.WriteLine("Автобус пуст");
+            }
+            }
         }
-    }
-    class Company
-    {
-        public string Type;
-        public string Name;
-    }
 
-    class Department
-    {
-        public Company Company;
-        public City City;
     }
-
-    class City
-    {
-        public string Name;
-    }
-
-}
