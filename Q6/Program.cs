@@ -10,65 +10,102 @@ namespace Q6
 
         }
     }
-	class User
-	{
-		private int age;
-
-
-		public string login
+    class Triangle
+    {
+        private int a;
+        private int b;
+        private int c;
+        public int A
         {
-            get
+            get 
             {
-				return login;
+                return a;
             }
-			set
+            set 
             {
-				if (login.Length<3)
+                if ((a<=0)&&(b+c>a))
                 {
-					Console.WriteLine("Логин должен быть не длинее 3-х символов");
-				}
-				else
+                    Console.WriteLine("Неверное значение");
+
+                }
+                else
                 {
-					login = value;
+                    a = value;
                 }
             }
         }
-		public string mail
-		{
-			get
-			{
-				return mail;
-			}
-			set
-			{
-				if (!value.Contains('@'))
-				{
-					Console.WriteLine("Неверный формат адреса электронной почты");
-				}
-				else
+        public int B
+        {
+            get
+            {
+                return b;
+            }
+            set
+            {
+                if ((b <= 0) && (a + c > b))
                 {
-					mail = value;
-                }
-			}
-		}
-		public int Age
-		{
-			get
-			{
-				return age;
-			}
+                    Console.WriteLine("Неверное значение");
 
-			set
-			{
-				if (value < 18)
-				{
-					Console.WriteLine("Возраст должен быть не меньше 18");
-				}
-				else
-				{
-					age = value;
-				}
-			}
-		}
-	}
+                }
+                else
+                {
+                    b = value;
+                }
+            }
+        }
+        public int C
+        {
+            get
+            {
+                return c;
+            }
+            set
+            {
+                if ((c <= 0) && (b + a > c))
+                {
+                    Console.WriteLine("Неверное значение");
+
+                }
+                else
+                {
+                    c = value;
+                }
+            }
+        }
+
+
+        public int P()
+        {
+            return a + c + b;
+        }
+        public double S()
+        {
+            int p = P();
+            return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+        }
+    }
+    class Circle
+    {
+        public int r;
+        public double S()
+        {
+            return r * r * Math.PI;
+        }
+        public double P()
+        {
+            return 2 * Math.PI * r;
+        }
+    }
+    class Square
+    {
+        public int a;
+        public int P()
+        {
+            return a * 4;
+        }
+        public double S()
+        {
+            return a * a;
+        }
+    }
 }
