@@ -10,45 +10,65 @@ namespace Q6
 
         }
     }
-    class Triangle
-    {
-        public int a;
-        public int b;
-        public int c;
+	class User
+	{
+		private int age;
 
-        public int P()
-        {
-            return a + c + b;
-        }
-        public double S()
-        {
-            int p = P();
-            return Math.Sqrt(p*(p-a)*(p-b)*(p-c));
-        }
-    }
-    class Circle
-    {
-        public int r;
-        public double S()
-        {
-            return r*r*Math.PI;
-        }
-        public double P()
-        {
-            return 2*Math.PI*r;
-        }
-    }
-    class Square
-    {
-        public int a;
-        public int P()
-        {
-            return a*4;
-        }
-        public double S()
-        {
-            return a*a;
-        }
-    }
 
-    }
+		public string login
+        {
+            get
+            {
+				return login;
+            }
+			set
+            {
+				if (login.Length<3)
+                {
+					Console.WriteLine("Логин должен быть не длинее 3-х символов");
+				}
+				else
+                {
+					login = value;
+                }
+            }
+        }
+		public string mail
+		{
+			get
+			{
+				return mail;
+			}
+			set
+			{
+				if (!value.Contains('@'))
+				{
+					Console.WriteLine("Неверный формат адреса электронной почты");
+				}
+				else
+                {
+					mail = value;
+                }
+			}
+		}
+		public int Age
+		{
+			get
+			{
+				return age;
+			}
+
+			set
+			{
+				if (value < 18)
+				{
+					Console.WriteLine("Возраст должен быть не меньше 18");
+				}
+				else
+				{
+					age = value;
+				}
+			}
+		}
+	}
+}
